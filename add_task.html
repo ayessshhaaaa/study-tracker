@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Task - Study Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-body">
+
+    <div class="app-container">
+        
+        <header class="app-create-header">
+            <a href="view_task.php" class="app-back-button"><i class="fas fa-arrow-left"></i></a>
+            <h1 class="app-create-title">Create New Task</h1>
+            <i class="fas fa-clipboard-list"></i>
+        </header>
+
+        <main class="app-create-form">
+            <!-- This form now sends its data to add_task.php -->
+            <form method="POST" action="add_task.php">
+                <div class="form-group-create">
+                    <label for="task-name">Task Name</label>
+                    <input type="text" id="task-name" name="task_name" placeholder="Enter task name" required>
+                </div>
+
+                <div class="form-group-create">
+                    <label>Select Priority</label>
+                    <!-- This hidden input will store the selected priority -->
+                    <input type="hidden" id="priority-input" name="priority" value="Medium" required>
+                    
+                    <div class="category-pills">
+                        <button type="button" class="category-pill" data-value="Low">Low</button>
+                        <button type="button" class="category-pill active" data-value="Medium">Medium</button>
+                        <button type="button" class="category-pill" data-value="High">High</button>
+                    </div>
+                </div>
+
+                <div class="form-group-create">
+                    <label for="deadline">Date</label>
+                    <div class="input-with-icon">
+                        <input type="date" id="deadline" name="deadline" required>
+                        <i class="far fa-calendar"></i>
+                    </div>
+                </div>
+                
+                <button type="submit" class="app-create-button">Create Task</button>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        // Simple script to handle the active state and value of the priority buttons
+        document.querySelectorAll('.category-pill').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-pill').forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to the clicked button
+                button.classList.add('active');
+                
+                // Update the hidden input's value
+                document.getElementById('priority-input').value = button.dataset.value;
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer - Feature Showcase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="landing-page.css">
+    <style>
+        body {
+            background-color: var(--lp-secondary-bg);
+        }
+        .lp-feature-showcase {
+            padding: 80px 60px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: var(--lp-primary-bg);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px var(--lp-shadow-light);
+        }
+        .lp-feature-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .lp-feature-header h1 {
+            font-size: 2.8em;
+            color: var(--lp-heading-color);
+            margin-bottom: 15px;
+        }
+        .lp-feature-header p {
+            font-size: 1.2em;
+            color: var(--lp-text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .lp-feature-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        .lp-feature-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        .lp-feature-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--lp-shadow-medium);
+        }
+        .lp-feature-points {
+            flex: 1;
+            min-width: 300px;
+        }
+        .lp-feature-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .lp-feature-point i {
+            font-size: 1.5em;
+            color: var(--lp-accent-purple);
+            margin-top: 5px;
+        }
+        .lp-feature-point h3 {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+            color: var(--lp-heading-color);
+        }
+        .lp-feature-point p {
+            color: var(--lp-text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="lp-feature-showcase">
+        <div class="lp-feature-header">
+            <h1><i class="fas fa-clock"></i> Pomodoro Timer</h1>
+            <p>Boost your focus and prevent burnout with the scientifically proven Pomodoro Technique, built right into your dashboard.</p>
+        </div>
+        <div class="lp-feature-content">
+            <div class="lp-feature-image">
+                <img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&w=800&q=80" alt="A person focused on work with a timer in the background">
+            </div>
+            <div class="lp-feature-points">
+                <div class="lp-feature-point">
+                    <i class="fas fa-hourglass-start"></i>
+                    <div>
+                        <h3>Focused Work Intervals</h3>
+                        <p>Work in distraction-free 25-minute sprints to maximize concentration and make progress on your tasks.</p>
+                    </div>
+                </div>
+                <div class="lp-feature-point">
+                    <i class="fas fa-coffee"></i>
+                    <div>
+                        <h3>Scheduled Breaks</h3>
+                        <p>Take short, rejuvenating breaks to rest your mind, which helps maintain high productivity over long study sessions.</p>
+                    </div>
+                </div>
+                <div class="lp-feature-point">
+                    <i class="fas fa-chart-bar"></i>
+                    <div>
+                        <h3>Track Your Sessions</h3>
+                        <p>Log your completed Pomodoro sessions to see how you're investing your time and build effective study habits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+             <a href="index.html" class="lp-btn lp-btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

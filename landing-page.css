@@ -1,0 +1,698 @@
+/* --- Color Palette for Athenify.io-inspired Light Landing Page --- */
+:root {
+    --lp-primary-bg: #FFFFFF; /* Pure white background */
+    --lp-secondary-bg: #F8F8FA; /* Very light grey for sections/cards */
+    --lp-tertiary-bg: #FDFDFD; /* Slightly off-white for subtle variation */
+
+    --lp-text-color: #333333; /* Dark grey text */
+    --lp-text-muted: #666666; /* Muted grey for secondary text/placeholders */
+    --lp-heading-color: #222222; /* Very dark grey for headings */
+
+    --lp-accent-purple: #5B4CF4; /* Primary accent purple from Athenify */
+    --lp-accent-purple-light: #7E70FA; /* Lighter purple for hover/subtle elements */
+    --lp-accent-teal: #00BFB2; /* Secondary accent teal (for some highlights) */
+
+    --lp-border-color: #EFEFEF; /* Very light grey borders */
+    --lp-shadow-light: rgba(0, 0, 0, 0.04); /* Very subtle light shadow */
+    --lp-shadow-medium: rgba(0, 0, 0, 0.08); /* More pronounced shadow */
+    --lp-gradient-start: #5B4CF4;
+    --lp-gradient-end: #7E70FA;
+
+    /* Sparkle colors - very subtle for light theme */
+    --sparkle-color-1: rgba(91, 76, 244, 0.5); /* Primary accent with low opacity */
+    --sparkle-color-2: rgba(126, 112, 250, 0.5); /* Lighter accent with low opacity */
+    --sparkle-color-3: rgba(255, 255, 255, 0.8); /* White with higher opacity for contrast */
+}
+
+/* --- Base & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Body font */
+    line-height: 1.6;
+    color: var(--lp-text-color);
+    background-color: var(--lp-primary-bg); /* Clean white background */
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative; /* For background pseudo-elements and sparkles */
+}
+
+h1, h2, h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Heading font */
+    color: var(--lp-heading-color);
+    line-height: 1.2;
+}
+
+/* --- Force Font Awesome Icons to Display Correctly --- */
+/* This rule is designed to fix issues where specific Font Awesome icons might not appear. */
+/* It ensures the correct font-family and font-weight are applied aggressively. */
+.fas, .fab {
+    font-family: "Font Awesome 6 Free" !important; /* Crucial: ensures FA font is used */
+    font-weight: 900 !important; /* Crucial: forces solid icons (fas) to display */
+    -webkit-font-smoothing: antialiased; /* Better rendering on WebKit browsers */
+    -moz-osx-font-smoothing: grayscale; /* Better rendering on Firefox on macOS */
+    text-rendering: auto; /* Ensures text rendering is correct */
+    /* Other styles like color and font-size are handled by more specific rules below */
+}
+
+
+/* --- Subtle Background Gradient Circles (Athenify-like) --- */
+/* These create the blurred, colorful background elements */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.1; /* Very subtle */
+    filter: blur(80px); /* Heavy blur */
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Behind everything */
+    animation: lp-bg-float 15s ease-in-out infinite alternate;
+}
+
+body::before {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, var(--lp-accent-purple), var(--lp-accent-teal));
+    top: -50px;
+    left: -50px;
+    animation-duration: 18s;
+}
+
+body::after {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, var(--lp-accent-teal), var(--lp-accent-purple-light));
+    bottom: -50px;
+    right: -50px;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+@keyframes lp-bg-float {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-48%, -52%) scale(1.05); }
+}
+
+
+/* --- Buttons --- */
+.lp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+    font-size: 1.05em;
+}
+
+.lp-btn-primary {
+    background: linear-gradient(45deg, var(--lp-accent-purple), var(--lp-accent-purple-light));
+    color: white;
+    box-shadow: 0 5px 20px var(--lp-shadow-medium);
+}
+
+.lp-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--lp-shadow-medium);
+    opacity: 0.98;
+}
+
+.lp-btn-secondary {
+    background-color: transparent;
+    color: var(--lp-text-color);
+    border: 1px solid var(--lp-border-color);
+    box-shadow: 0 2px 8px var(--lp-shadow-subtle);
+}
+
+.lp-btn-secondary:hover {
+    background-color: var(--lp-secondary-bg);
+    color: var(--lp-accent-purple);
+    border-color: var(--lp-accent-purple);
+    transform: translateY(-2px);
+}
+
+.lp-nav-btn { /* Specific styling for buttons in nav for smaller size */
+    padding: 10px 20px;
+    font-size: 0.95em;
+    border-radius: 8px;
+}
+
+
+/* --- Header --- */
+.lp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.9); /* Translucent white background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(224, 224, 224, 0.5); /* Subtle grey border */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lp-logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.8em;
+    font-weight: 800;
+    color: var(--lp-heading-color);
+}
+
+.lp-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.lp-nav-item {
+    color: var(--lp-text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1em;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lp-nav-item:hover {
+    color: var(--lp-accent-purple);
+}
+
+.lp-nav-item i {
+    color: var(--lp-text-muted);
+    transition: color 0.2s ease;
+}
+
+.lp-nav-item:hover i {
+    color: var(--lp-accent-purple);
+}
+
+.lp-mobile-menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: var(--lp-heading-color);
+    cursor: pointer;
+}
+
+/* --- Hero Section --- */
+.lp-hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 80px);
+    position: relative;
+    background-color: var(--lp-primary-bg); /* Match body background */
+}
+
+.lp-hero-content {
+    max-width: 900px;
+    margin-bottom: 50px;
+}
+
+.lp-hero-section h1 {
+    font-size: 3.8em;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    background: linear-gradient(90deg, var(--lp-accent-purple), var(--lp-accent-purple-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
+}
+
+.lp-hero-section p {
+    font-size: 1.3em;
+    color: var(--lp-text-muted);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Updated CTA button within hero */
+.lp-hero-section .lp-btn {
+    padding: 18px 40px;
+    font-size: 1.2em;
+    border-radius: 12px;
+}
+
+.lp-hero-image {
+    max-width: 800px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.lp-hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px var(--lp-shadow-medium);
+    border: 1px solid var(--lp-border-color);
+}
+
+/* --- Features Section --- */
+.lp-features-section {
+    background-color: var(--lp-secondary-bg); /* Light grey background for this section */
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.lp-features-section h2 {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--lp-heading-color);
+}
+
+.lp-section-subtitle {
+    font-size: 1.2em;
+    color: var(--lp-text-muted);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lp-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lp-feature-box {
+    background-color: var(--lp-primary-bg); /* White background for feature boxes */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--lp-shadow-subtle);
+    text-align: left;
+    border: 1px solid var(--lp-border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lp-feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--lp-shadow-medium);
+}
+
+.lp-feature-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--lp-accent-purple);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(91, 76, 244, 0.2);
+}
+
+.lp-feature-icon i {
+    font-size: 1.8em;
+    color: white; /* ICON COLOR IS WHITE */
+}
+
+.lp-feature-box h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--lp-heading-color);
+}
+
+.lp-feature-box p {
+    font-size: 0.95em;
+    color: var(--lp-text-muted);
+}
+
+.lp-feature-box-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Make the whole box clickable */
+}
+
+/* --- Calendar Intro Section --- */
+.lp-calendar-intro-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+    background-color: var(--lp-primary-bg); /* Match main background */
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lp-calendar-text {
+    flex: 1;
+    max-width: 550px;
+    text-align: left;
+}
+
+.lp-calendar-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--lp-heading-color);
+}
+
+.lp-calendar-text p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--lp-text-muted);
+}
+
+.lp-calendar-btn {
+    margin-top: 30px;
+}
+
+.lp-calendar-image {
+    flex: 1;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+.lp-calendar-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px var(--lp-shadow-medium);
+    border: 1px solid var(--lp-border-color);
+}
+
+/* --- Footer --- */
+.lp-footer {
+    background-color: var(--lp-secondary-bg); /* Light grey background for footer */
+    color: var(--lp-text-muted);
+    padding: 50px 60px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.lp-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Interactive Sparkle CSS --- */
+/* This container will hold all the individual sparkle elements */
+.sparkle-effect-container {
+    position: fixed; /* Fixed position relative to viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    pointer-events: none; /* Crucial: allows clicks/interactions to pass through */
+    overflow: hidden; /* Contains sparkles within the viewport */
+    z-index: 9999; /* Ensures sparkles are on top of other content */
+}
+
+/* Individual sparkle element styling */
+.lp-sparkle {
+    position: absolute;
+    width: 0px; /* Starts tiny */
+    height: 0px;
+    background-color: transparent; /* Initially transparent, relies on box-shadow for glow */
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    animation: lp-sparkle-fade-grow 0.8s forwards; /* Animation to fade and grow */
+    /* Multi-layer glow effect using subtle colors */
+    box-shadow: 0 0 4px var(--sparkle-color-1), /* Innermost glow */
+                0 0 8px var(--sparkle-color-2), /* Middle glow */
+                0 0 12px var(--sparkle-color-3); /* Outermost, fainter glow */
+}
+
+/* Keyframes for the sparkle animation */
+@keyframes lp-sparkle-fade-grow {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        width: 0px;
+        height: 0px;
+    }
+    10% {
+        opacity: 0.8; /* Quickly appear */
+        transform: scale(1);
+        width: 3px; /* Grow to small size */
+        height: 3px;
+    }
+    100% {
+        opacity: 0; /* Fade out completely */
+        transform: scale(1.5); /* Slightly larger when fading out */
+        width: 3px; /* Maintain base size */
+        height: 3px;
+    }
+}
+
+
+/* --- Responsive Design for Landing Page --- */
+@media (max-width: 992px) {
+    .lp-header {
+        padding: 15px 30px;
+    }
+    .lp-nav {
+        gap: 15px;
+    }
+    .lp-hero-section {
+        padding: 80px 30px;
+    }
+    .lp-hero-section h1 {
+        font-size: 3.2em;
+    }
+    .lp-hero-section p {
+        font-size: 1.05em;
+    }
+    .lp-hero-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .lp-features-section {
+        padding: 60px 30px;
+    }
+    .lp-features-section h2 {
+        font-size: 2.4em;
+    }
+    .lp-section-subtitle {
+        font-size: 0.95em;
+        margin-bottom: 40px;
+    }
+    .lp-feature-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+    .lp-feature-box {
+        padding: 25px;
+    }
+    .lp-calendar-intro-section {
+        flex-direction: column; /* Stack on smaller screens */
+        padding: 60px 30px;
+        gap: 40px;
+    }
+    .lp-calendar-text {
+        text-align: center; /* Center text when stacked */
+        max-width: 100%;
+    }
+    .lp-calendar-text h2 {
+        font-size: 2.2em;
+    }
+    .lp-calendar-text p {
+        font-size: 1em;
+    }
+    .lp-calendar-image {
+        max-width: 80%; /* Adjust image width when stacked */
+    }
+    .lp-footer {
+        padding: 40px 30px;
+    }
+    .lp-footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 30px;
+        text-align: center;
+    }
+    .lp-footer-col h3 {
+        margin-bottom: 10px;
+    }
+    .lp-footer-col ul {
+        margin-bottom: 10px;
+    }
+    .lp-footer-col ul li a {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .lp-header {
+        padding: 15px 20px;
+    }
+    .lp-nav {
+        display: none; /* Hide desktop nav */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98); /* Near solid white for mobile menu */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 5px 15px var(--lp-shadow-subtle);
+        padding: 20px 0;
+        align-items: flex-start;
+        gap: 15px;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-bottom: 1px solid var(--lp-border-color);
+    }
+
+    .lp-nav.lp-nav-open {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .lp-nav-item {
+        padding: 10px 30px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .lp-nav-btn { /* Apply full width to buttons in mobile nav */
+        width: calc(100% - 60px); /* Adjust for padding */
+        margin: 5px 30px;
+    }
+
+    .lp-mobile-menu-toggle {
+        display: block; /* Show mobile toggle */
+    }
+
+    .lp-hero-section {
+        padding: 60px 20px;
+    }
+    .lp-hero-section h1 {
+        font-size: 2.8em;
+    }
+    .lp-hero-section p {
+        font-size: 1em;
+    }
+    .lp-hero-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .lp-features-section {
+        padding: 60px 20px;
+    }
+    .lp-features-section h2 {
+        font-size: 2em;
+    }
+    .lp-section-subtitle {
+        font-size: 0.9em;
+    }
+    .lp-feature-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    .lp-feature-item {
+        padding: 25px;
+    }
+    .lp-calendar-intro-section {
+        padding: 60px 20px;
+    }
+    .lp-calendar-text h2 {
+        font-size: 2em;
+    }
+    .lp-calendar-text p {
+        font-size: 1em;
+    }
+    .lp-footer {
+        padding: 40px 20px;
+    }
+    .lp-footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .lp-header {
+        padding: 10px 15px;
+    }
+    .lp-logo {
+        font-size: 1.5em;
+    }
+    .lp-mobile-menu-toggle {
+        font-size: 1.5em;
+    }
+    .lp-hero-section {
+        padding: 40px 15px;
+    }
+    .lp-hero-section h1 {
+        font-size: 2.2em;
+    }
+    .lp-hero-section p {
+        font-size: 0.9em;
+    }
+    .lp-hero-actions {
+        gap: 10px;
+    }
+    .lp-btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .lp-features-section {
+        padding: 40px 15px;
+    }
+    .lp-features-section h2 {
+        font-size: 1.8em;
+    }
+    .lp-section-subtitle {
+        font-size: 0.85em;
+    }
+    .lp-feature-item {
+        padding: 20px;
+    }
+    .lp-feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    .lp-feature-item h3 {
+        font-size: 1.3em;
+    }
+    .lp-feature-item p {
+        font-size: 0.9em;
+    }
+    .lp-calendar-intro-section {
+        padding: 40px 15px;
+    }
+    .lp-calendar-text h2 {
+        font-size: 1.8em;
+    }
+    .lp-calendar-text p {
+        font-size: 0.9em;
+    }
+    .lp-footer {
+        padding: 25px 15px;
+    }
+}

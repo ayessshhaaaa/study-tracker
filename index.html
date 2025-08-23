@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tracker - Master Your Academics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="landing-page.css">
+    <style>
+        /* Additional styles for new sections */
+        .lp-about-section, .lp-contact-section {
+            padding: 80px 60px;
+            background-color: var(--lp-primary-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .lp-about-section h2, .lp-contact-section h2 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--lp-heading-color);
+            text-align: center;
+        }
+        
+        .lp-about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .lp-about-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+        
+        .lp-about-text h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: var(--lp-heading-color);
+        }
+        
+        .lp-about-text p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--lp-text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .lp-about-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .lp-about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px var(--lp-shadow-medium);
+            border: 1px solid var(--lp-border-color);
+        }
+        
+        .lp-contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .lp-contact-info {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+        }
+        
+        .lp-contact-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: var(--lp-heading-color);
+        }
+        
+        .lp-contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .lp-contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--lp-accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .lp-contact-icon i {
+            font-size: 1.2em;
+            color: white;
+        }
+        
+        .lp-contact-text h4 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: var(--lp-heading-color);
+        }
+        
+        .lp-contact-text p {
+            color: var(--lp-text-muted);
+            line-height: 1.5;
+        }
+        
+        .lp-contact-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+        
+        .lp-form-group {
+            margin-bottom: 20px;
+        }
+        
+        .lp-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--lp-heading-color);
+        }
+        
+        .lp-form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--lp-border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .lp-form-control:focus {
+            outline: none;
+            border-color: var(--lp-accent-purple);
+        }
+        
+        textarea.lp-form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .lp-form-submit {
+            background: linear-gradient(45deg, var(--lp-accent-purple), var(--lp-accent-purple-light));
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.05em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .lp-form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--lp-shadow-medium);
+        }
+        
+        @media (max-width: 768px) {
+            .lp-about-section, .lp-contact-section {
+                padding: 60px 30px;
+            }
+            
+            .lp-about-section h2, .lp-contact-section h2 {
+                font-size: 2.2em;
+            }
+            
+            .lp-about-content, .lp-contact-content {
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .lp-about-section, .lp-contact-section {
+                padding: 40px 20px;
+            }
+            
+            .lp-about-section h2, .lp-contact-section h2 {
+                font-size: 1.8em;
+            }
+            
+            .lp-about-text h3 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="lp-header">
+        <div class="lp-logo">Study Tracker</div>
+        <nav class="lp-nav">
+            <a href="#hero" class="lp-nav-item">Home</a>
+            <a href="#features" class="lp-nav-item">Features</a>
+            <a href="#about" class="lp-nav-item">About Us</a>
+            <a href="#contact" class="lp-nav-item">Contact Us</a>
+            <a href="login.php" class="lp-nav-item lp-btn-secondary lp-nav-btn">Login</a>
+            <a href="signup.html" class="lp-nav-item lp-btn-primary lp-nav-btn">Sign Up</a>
+        </nav>
+        <button class="lp-mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <section id="hero" class="lp-hero-section">
+        <h1>Unlock Your Academic Potential.</h1>
+        <p>Study Tracker is your all-in-one platform to organize tasks, manage time, track goals, and boost your productivity effortlessly.</p>
+        <a href="signup.html" class="lp-btn lp-btn-primary lp-btn-large">Get Started</a>
+    </section>
+
+    <section class="lp-features-section" id="features">
+        <h2>Features Designed for Student Success.</h2>
+        <p class="lp-section-subtitle">Everything you need to stay organized and motivated.</p>
+        <div class="lp-feature-grid">
+            <a href="notes.html" class="lp-feature-box-link">
+                <div class="lp-feature-box">
+                    <div class="lp-feature-icon"><i class="fas fa-book"></i></div>
+                    <h3>Smart Notes</h3>
+                    <p>Quickly jot down important points, lecture notes, or personal reminders.</p>
+                </div>
+            </a>
+            <a href="pomodoro.html" class="lp-feature-box-link">
+                <div class="lp-feature-box">
+                    <div class="lp-feature-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Pomodoro Timer</h3>
+                    <p>Focus deeply with a built-in timer and track your productivity streaks.</p>
+                </div>
+            </a>
+            <a href="progress.html" class="lp-feature-box-link">
+                <div class="lp-feature-box">
+                    <div class="lp-feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Progress Insights</h3>
+                    <p>Visualize your achievements and areas of improvement with analytics.</p>
+                </div>
+            </a>
+            <a href="goals.html" class="lp-feature-box-link">
+                <div class="lp-feature-box">
+                    <div class="lp-feature-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Goal Tracking</h3>
+                    <p>Set daily, weekly, and semester goals to stay on track and motivated.</p>
+                </div>
+            </a>
+            <a href="calendar.html" class="lp-feature-box-link">
+                <div class="lp-feature-box">
+                    <div class="lp-feature-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>Smart Calendar</h3>
+                    <p>Plan your study schedule interactively and never miss a deadline.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="lp-calendar-intro-section">
+        <div class="lp-calendar-text">
+            <h2>Plan Ahead with the Smart Calendar</h2>
+            <p>Stay on top of your academic life with a sleek, intuitive calendar. View your tasks, goals, and deadlines visually in one place. Designed to help you manage your time like a pro!</p>
+            <a href="calendar.html">
+                <button class="lp-btn lp-btn-primary lp-calendar-btn">Explore Calendar</button>
+            </a>
+        </div>
+        <div class="lp-calendar-image">
+            <img src="https://images.unsplash.com/photo-1604328727785-4e9a2489c745?auto=format&fit=crop&w=800&q=80" alt="Smart Calendar Preview">
+        </div>
+    </section>
+
+    <section id="about" class="lp-about-section">
+        <h2>About Study Tracker</h2>
+        <div class="lp-about-content">
+            <div class="lp-about-text">
+                <h3>Our Mission</h3>
+                <p>Study Tracker was founded with a simple goal: to help students maximize their academic potential through better organization, time management, and productivity tools. We understand the challenges students face in balancing coursework, exams, and personal life.</p>
+                <p>Our platform brings together all the essential tools students need in one place, making it easier to stay on top of assignments, track progress, and develop effective study habits that last a lifetime.</p>
+                <a href="#contact" class="lp-btn lp-btn-primary">Get In Touch</a>
+            </div>
+            <div class="lp-about-image">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Students studying together">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="lp-contact-section">
+        <h2>Contact Us</h2>
+        <div class="lp-contact-content">
+            <div class="lp-contact-info">
+                <h3>Get In Touch</h3>
+                <div class="lp-contact-detail">
+                    <div class="lp-contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="lp-contact-text">
+                        <h4>Address</h4>
+                        <p>123 Education Street<br>Academic City, AC 12345</p>
+                    </div>
+                </div>
+                <div class="lp-contact-detail">
+                    <div class="lp-contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="lp-contact-text">
+                        <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="lp-contact-detail">
+                    <div class="lp-contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="lp-contact-text">
+                        <h4>Email</h4>
+                        <p>support@studytracker.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lp-contact-form">
+                <form id="contactForm">
+                    <div class="lp-form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="lp-form-control" required>
+                    </div>
+                    <div class="lp-form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" class="lp-form-control" required>
+                    </div>
+                    <div class="lp-form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="lp-form-control" required>
+                    </div>
+                    <div class="lp-form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="lp-form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="lp-form-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="lp-footer">
+        © 2025 Study Tracker. All rights reserved.
+    </footer>
+
+    <script src="landing-page-script.js"></script>
+    <script>
+        // Simple form handling for the contact form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Update navigation to handle new sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.lp-nav-item');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        const nav = document.querySelector('.lp-nav');
+                        nav.classList.remove('lp-nav-open');
+                        document.querySelector('.lp-mobile-menu-toggle i').classList.replace('fa-times', 'fa-bars');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

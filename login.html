@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - College Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Floating pastel blobs -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <!-- Sparkles ✨ -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.top = Math.random() * 100 + '%';
+      document.body.appendChild(sparkle);
+    }
+  </script>
+
+  <!-- Login Form -->
+  <div class="hero">
+    <h2>✨ Login</h2>
+    <form action="login.php" method="post">
+      <input type="text" placeholder="Username" name="username" required><br>
+      <input type="password" placeholder="Password" name="password" required><br>
+      <button class="btn" type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
